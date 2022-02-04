@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+
+<div class="table-responsive">
+
+<ul class="list-group">
+ <a href="#"  STYLE=" text-align: center;" class="list-group-item list-group-item-action active">
+  <h4>Lista de departamentos da empresa</h4>
+
+  </a>
+   <a href="{% url 'create_departamento'  %}"  STYLE="background-color: #671fc2; text-align: center;" class="list-group-item list-group-item-action active">
+    CRIAR NOVO DEPARMENTO
+
+  </a>
+   {% for depart in object_list %}
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+     <a href="{% url 'update_departamento' depart.id %}" >
+    {{ depart }}
+       </a>
+     <a href="{% url 'delete_departamento' depart.id %}">
+         <h5> <span class="badge badge-danger badge-pill">Delete</span></h5></a>
+  </li>
+  {% endfor %}
+
+</ul>
+</div>
+
+{% endblock %}

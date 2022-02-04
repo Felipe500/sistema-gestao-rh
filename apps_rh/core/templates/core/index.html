@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<h2>SEJA BEM-VINDO</h2>
+<div class="row">
+    <div class="col-sm">
+      Olá {{ usuario.funcionario.nome }}
+        <a href="{% url 'list_departamentos' %}">Gerenciar Departamnetos</a>
+        <a href="{% url 'list_funcionarios' %}">Gerenciar Funcionarios</a>
+       <a href="{% url 'list_hora_extra' %}">Gerenciar banco de horas</a>
+    </div>
+
+    <div class="col-sm">
+      One of three columns
+      {% if usuario.funcionario.empresa %}
+        <a href="{% url 'edit_empresa' usuario.funcionario.empresa.id %}">Editar Empresa</a>
+
+      {% else %}
+        <a href="{% url 'create_empresa' %}">Adcionar Empresa</a>
+      {% endif %}
+    </div>
+    <div class="col-sm">
+      <a href="{% url 'logout' %}" > Sair</a>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+
+<div class="table-responsive">
+
+<ul class="list-group">
+
+    <a href="#"  STYLE=" text-align: center;" class="list-group-item list-group-item-action active">
+        <h4>Lista de Funcionarios da empresa</h4>
+
+  </a>
+   <a href="{% url 'create_funcionario'  %}"  STYLE="background-color: #671fc2; text-align: center;" class="list-group-item list-group-item-action active">
+    CRIAR NOVO FUNCIONÁRIO
+
+  </a>
+   {% for func in object_list %}
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+     <a href="{% url 'update_funcionario' func.id %}" >
+    {{ func }}
+       </a>
+     <a href="{% url 'deletar_funcionario' func.id %}">
+         <h5> <span class="badge badge-danger badge-pill">Delete</span></h5></a>
+  </li>
+  {% endfor %}
+
+
+</ul>
+</div>
+
+
+
+{% endblock %}
