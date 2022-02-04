@@ -1,0 +1,32 @@
+
+{% load static%}
+
+
+
+<!DOCTYPE html><html lang='en' class=''>
+<head>
+    <script src="{% static 'login/jquery-ajax.js'%}"></script>
+<link rel="stylesheet" href="{% static 'login/login.css' %}">
+<link rel='stylesheet prefetch' href="{% static 'login/normalize.min.css' %}"><script src="{% static  'login/prefixfree.min.js' %}"></script>
+</head>
+<body>
+<div class="login">
+	<h1>ENTRAR</h1>
+    <form method="post">
+        {% csrf_token %}
+    	{{ form.as_p }}
+        <button type="submit" class="btn btn-primary btn-block btn-large">Login</button>
+    </form>
+</div>
+<script >/*
+
+I built this login form to block the front end of most of my freelance wordpress projects during the development stage.
+
+This is just the HTML / CSS of it but it uses wordpress's login system.
+
+Nice and Simple
+
+*/
+//# sourceURL=pen.js
+</script>
+</body></html>
