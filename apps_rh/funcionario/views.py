@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, UpdateView, DeleteView, CreateView
-from pkg_resources import _
+from django.utils.translation import gettext as _
 
 from apps_rh.funcionario.models import Funcionario
 
