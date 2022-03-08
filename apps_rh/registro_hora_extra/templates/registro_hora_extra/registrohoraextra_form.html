@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block main %}
 <h2>Editar Horas Extras Funcionario </h2>
@@ -9,15 +10,31 @@
 {{ form|crispy }}
 
 <button type="submit" class="btn btn-success">Salvar</button>
+
+
+     {% if object %}
+        <a href="{% url 'delete_hora_extra' object.id %}" class="btn btn-danger">
+            Deletar
+        </a>
+
+    {% endif %}
+
+      <button onclick="utilizouHoraExtra({{ object.id }})"
+            class="btn btn-info" type="button">
+        Marcar como utilizada
+    </button>
 </form>
 
-<br>
 
 <br>
-<h2>Documentos</h2>
+
+<br>
 
 
+{% endblock %}
 
 
-
+{% block staticfiles %}
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/funcoes.js' %}"></script>
 {% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+
+    <select name="departamentos" id="departamentos" onchange="filtraFuncionarios()">
+        <option disabled selected="selected">Selecione um departamento</option>
+        {% for departamento in departamentos %}
+            <option value="{{ departamento.id }}"> {{ departamento.nome }}</option>
+        {% endfor %}
+    </select>
+
+    <select name="funcionarios" id="funcionarios">
+        <option disabled selected="selected" value="0">Selecione um produto</option>
+    </select>
+
+    <p id="mensagem"></p>
+
+{% endblock %}
+
+
+{% block staticfiles %}
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'bootstrap4/js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/funcoes.js' %}"></script>
+{% endblock %} 

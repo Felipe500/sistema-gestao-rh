@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %}</title>
     <link rel="stylesheet" href="{% static 'bootstrap4/css/bootstrap.min.css'%}">
+    {% block staticcss %}
+    {% endblock %}
 </head>
 <body>
 <script src="{% static 'bootstrap4/js/bootstrap.min.js'%}"> integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -13,5 +15,8 @@
 {% endblock %}
 </div>
 
+
+{% block staticfiles %}
+{% endblock %}
 </body>
 </html>
