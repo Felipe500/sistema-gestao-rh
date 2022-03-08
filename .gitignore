@@ -6,5 +6,6 @@
 media
 .git
 venv
+static
 .env
 __pycache__
