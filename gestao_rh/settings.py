@@ -122,6 +122,7 @@ LOGIN_REDIRECT_URL = 'Home'
 
 LOGOUT_REDIRECT_URL = 'login'
 
+CELERY_RESULT_BACKEND = 'django-bd'
 CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
