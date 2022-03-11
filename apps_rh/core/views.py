@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from apps_rh.core.serializers import UserSerializer, GroupSerializer
+from .tasks import send_relatorio
 
 from apps_rh.departamento.models import Departamento
 
@@ -29,6 +30,9 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
 
+def celery(request):
+    send_relatorio.delay()
+    return HttpResponse('Tarefa incluida na fila para execucao')
 
 def filtra_funcionarios(request):
     depart = request.GET['outro_param']

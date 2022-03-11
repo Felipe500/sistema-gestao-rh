@@ -17,4 +17,17 @@ def mul(x, y):
 def xsum(numbers):
     return sum(numbers)
 
+@shared_task
+def send_relatorio():
+    total = Funcionario.objects.all().count()
+    send_mail(
+        'Relatorio Celery',
+        'Relatorio geral de funcionarios %f' % total,
+         'suporte@felipebrxdev.xyz',
+        ['felipe.brx.dev@gmail.com'],
+        fail_silently=False,
+    )
+
+
+    return 'Email sent'
 
