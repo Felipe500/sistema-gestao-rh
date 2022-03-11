@@ -1,21 +1,19 @@
 
 from pathlib import Path
 import os, sys
-
+from decouple import config
 
 #BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 print(BASE_DIR)
 
 
-SECRET_KEY = 'django-insecure-5^xn$ve)9qh$_cx-0%u^l(^m4kq9b!i#m7r!3e@r&p9(kvat)m'
+SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
+
 
 ALLOWED_HOSTS = ['3.94.13.85','localhost']
-
-
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -127,3 +125,10 @@ CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
+
+EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
+SENDGRID_API_URL = "https://api.sendgrid.com/v3/"
+ANYMAIL = {
+    "SENDGRID_API_KEY":config('SENDGRID_API_KEY'),
+
+}
