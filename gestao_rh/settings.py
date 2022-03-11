@@ -130,5 +130,4 @@ EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
 SENDGRID_API_URL = "https://api.sendgrid.com/v3/"
 ANYMAIL = {
     "SENDGRID_API_KEY":config('SENDGRID_API_KEY'),
-
 }
