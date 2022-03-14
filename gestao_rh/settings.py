@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'apps_rh.registro_hora_extra',
     'apps_rh.documentos',
     'django_celery_results',
+    'django_celery_beat',
 
     ]
 

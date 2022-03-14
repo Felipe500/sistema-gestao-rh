@@ -9,3 +9,7 @@ venv
 static
 .env
 __pycache__
+*.bak
+*.dat
+*.pid
+*.dir
